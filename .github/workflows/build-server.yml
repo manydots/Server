@@ -49,7 +49,7 @@ jobs:
       # 编译 monitor
       - name: 编译libfd_monitor.so
         run: |
-          cd Server/monitor
+          cd monitor
           sed -i '1s/^.//' CMakeLists.txt
           sed -i 's|set(CMAKE_LIBRARY_OUTPUT_DIRECTORY|#set(CMAKE_LIBRARY_OUTPUT_DIRECTORY|g' CMakeLists.txt
           rm -rf build && mkdir build && cd build
@@ -59,7 +59,7 @@ jobs:
       # 编译 server
       - name: 编译libfd.so
         run: |
-          cd Server/server
+          cd server
           sed -i '1s/^.//' CMakeLists.txt
           sed -i 's|set(CMAKE_LIBRARY_OUTPUT_DIRECTORY|#set(CMAKE_LIBRARY_OUTPUT_DIRECTORY|g' CMakeLists.txt
           rm -rf build && mkdir build && cd build
@@ -70,8 +70,8 @@ jobs:
       - name: 整理编译插件
         run: |
           mkdir -p output
-          cp Server/monitor/build/libfd_monitor.so output/
-          cp Server/server/build/libfd.so output/
+          cp monitor/build/libfd_monitor.so output/
+          cp server/build/libfd.so output/
 
       # 上传到 Releases
       - name: 发布到 GitHub Releases
