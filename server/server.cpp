@@ -736,15 +736,15 @@ char __hide __cdecl hookCParty__DungeonPermission(int* thisP, int score) {
 		int isAdd = 0;
 		WORD currentDiff = CBattle_Field__get_dungeon_diff((int*)((BYTE*)thisP + 0xB24));
 		if (currentDiff == 0) {
-			if (score >= RWORD(mgr, 0x5138))// 大于D评分
+			if (score >= RWORD(mgr, 0x513a))// 大于F评分
 				isAdd = CUser__AddDungeonClear(user, dungeonId, 1);
 		}
 		else if (currentDiff == 1) {
-			if (score >= RWORD(mgr, 0x5136))// 大于C评分
+			if (score >= RWORD(mgr, 0x5134))// 大于B评分
 				isAdd = CUser__AddDungeonClear(user, dungeonId, 2);
 		}
 		else if (currentDiff == 2) {
-			if (score >= RWORD(mgr, 0x5134))// 大于B评分
+			if (score >= RWORD(mgr, 0x5130))// 大于S评分
 				isAdd = CUser__AddDungeonClear(user, dungeonId, 3);
 		}
 		//switch (currentDiff) {
